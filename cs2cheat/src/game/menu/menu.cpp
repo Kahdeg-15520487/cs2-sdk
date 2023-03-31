@@ -12,6 +12,9 @@ static bool g_bMenuIsOpen;
 
 void menu::Render() {
     if (ImGui::IsKeyPressed(ImGuiKey_Insert, false)) Toggle(!IsOpen());
+    if (ImGui::IsKeyPressed(ImGuiKey_P, false)) {
+        esp::skin();
+    }
     if (!IsOpen()) return;
 
     memory::fnSDL_SetRelativeMouseMode(false);

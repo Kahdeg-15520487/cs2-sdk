@@ -127,6 +127,11 @@
     <ClInclude Include="src\sdk\interfaces\interfaces.hpp" />
     <ClInclude Include="src\sdk\math\math.hpp" />
     <ClInclude Include="src\sdk\memory\memory.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\cplayer_weaponservices.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\c_attributecontainer.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\c_baseplayerweapon.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\c_econentity.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\c_econitemview.hpp" />
     <ClInclude Include="src\sdk\source-sdk\classes\interfaces\ccvar.hpp" />
     <ClInclude Include="src\sdk\source-sdk\classes\interfaces\cengineclient.hpp" />
     <ClInclude Include="src\sdk\source-sdk\classes\interfaces\cgameentitysystem.hpp" />
@@ -185,6 +190,7 @@
     <ClCompile Include="src\sdk\math\math.cpp" />
     <ClCompile Include="src\sdk\memory\memory.cpp" />
     <ClCompile Include="src\sdk\source-sdk\classes\entity\chandle.cpp" />
+    <ClCompile Include="src\sdk\source-sdk\classes\entity\cplayer_weaponservices.cpp" />
     <ClCompile Include="src\sdk\source-sdk\classes\entity\c_baseentity.cpp" />
     <ClCompile Include="src\sdk\source-sdk\classes\entity\c_csplayerpawn.cpp" />
     <ClCompile Include="src\sdk\source-sdk\schema\schema.cpp" />

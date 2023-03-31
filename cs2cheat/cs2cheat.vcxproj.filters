@@ -60,6 +60,11 @@
     <ClInclude Include="src\sdk\source-sdk\classes\interfaces\ccvar.hpp" />
     <ClInclude Include="src\sdk\math\math.hpp" />
     <ClInclude Include="src\game\render\render.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\c_econitemview.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\c_econentity.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\c_baseplayerweapon.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\cplayer_weaponservices.hpp" />
+    <ClInclude Include="src\sdk\source-sdk\classes\entity\c_attributecontainer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\sdk\memory\memory.cpp" />
@@ -100,5 +105,6 @@
     <ClCompile Include="src\game\esp\esp.cpp" />
     <ClCompile Include="src\sdk\source-sdk\classes\entity\c_csplayerpawn.cpp" />
     <ClCompile Include="src\sdk\math\math.cpp" />
+    <ClCompile Include="src\sdk\source-sdk\classes\entity\cplayer_weaponservices.cpp" />
   </ItemGroup>
 </Project>

@@ -5,6 +5,47 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include <imgui/imgui.h>
 #include <imgui/imgui_internal.h>
+#include "../../sdk/source-sdk/classes/entity/c_baseplayerweapon.hpp"
+
+void esp::skin() {
+    LOG("skin\r\n");
+    for (int i = 1; i <= MAX_PLAYERS; ++i) {
+        CCSPlayerController* pPlayer =
+            interfaces::pEntitySystem->GetBaseEntity<CCSPlayerController>(i);
+        if (!pPlayer || !pPlayer->IsPlayerController() ||
+            !pPlayer->m_bPawnIsAlive())
+            continue;
+
+        C_CSPlayerPawn* pPawn = pPlayer->m_hPawn().GetAs<C_CSPlayerPawn>();
+        if (!pPawn) continue;
+
+        if (pPlayer->m_bIsLocalPlayerController()) {
+            auto weapon_services = pPawn->m_pWeaponServices();
+            LOG("weapons count: %i\r\n", weapon_services->m_hMyWeapons());
+            LOG("weapon <1>: %i\r\n",
+                weapon_services->m_hMyWeapons1().GetEntryIndex());
+            LOG("weapon <2>: %i\r\n",
+                weapon_services->m_hMyWeapons2().GetEntryIndex());
+            LOG("weapon <3>: %i\r\n",
+                weapon_services->m_hMyWeapons3().GetEntryIndex());
+            LOG("holding weapon: %i\r\n",
+                weapon_services->m_hActiveWeapon().GetEntryIndex());
+            auto weapon =
+                weapon_services->m_hActiveWeapon().GetAs<C_BasePlayerWeapon>();
+            weapon->m_AttributeManager().m_Item().m_iItemIDHigh() = -1;
+            LOG("holding weapon id: %I64u\r\n",
+                weapon->m_AttributeManager().m_Item().m_iItemID());
+            LOG("weapon name: %s\r\n", weapon->m_pEntity()->m_designerName());
+            LOG("account id: %i\r\n",
+                weapon->m_AttributeManager().m_Item().m_iAccountID());
+            LOG("holding weapon pos: %i\r\n",
+                weapon->m_AttributeManager().m_Item().m_iInventoryPosition());
+            weapon->m_flFallbackWear() = 0.00001f;
+            weapon->m_nFallbackSeed() = 0;
+            weapon->m_nFallbackPaintKit() = 38;
+        }
+    }
+}
 
 void esp::Render() {
     if (!interfaces::pEngine->IsInGame()) return;
